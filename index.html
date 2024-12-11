@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <div class="sep">
+        <h1>Calculate your BMI</h1>
+        <input type="range" class="ir" id="wei" min="0" max="300"  onchange="range()">
+        <div>
+            <div class="fle">
+            <h6>WEIGHT</h6>
+            <div class="weight"></div>
+            <h6>kg</h6>
+        </div>
+            <input type="range"  class="ir" id="hei" min="0" max="300" onchange="range()">
+            <div>
+                <div class="fle">
+                <h6>HEIGHT</h6>
+                <div class="height"></div>
+                <h6>cm</h6></div>
+            </div>
+            <button type="submit" onclick="calc()">CACULATE</button>
+            <div class="di">
+                <p>Your BMI:</p>
+                <p class="display"></p>
+            </div>
+        </div>
+    </div>
+    </main>
+    <script>
+        function range(){
+        let Weight=document.querySelector('#wei').value;
+        let height=document.querySelector('#hei').value;
+        let wei=document.querySelector('.weight')
+        let hei=document.querySelector('.height')
+        wei.innerHTML=Weight
+        hei.innerHTML=height
+        }
+        function calc(){
+        let Weight=document.querySelector('#wei').value;
+        let height=document.querySelector('#hei').value;
+        let bmi=document.querySelector('.display')
+        let result=((Weight)/(height*height))*10000
+        bmi.innerHTML=result.toFixed();
+        }
+        
+    </script>
+</body>
+</html>
